@@ -83,7 +83,7 @@ Gashora Girls Academy of Science and Technology
 * **Email:** izabayod05@gmail.com
 * **LinkedIn:** https://www.linkedin.com/in/izabayod-tech/
 * **GitHub:** https://github.com/divine-025
-* **Portfolio:** my link 
+* **Portfolio:** https://divine-025.github.io/portfolio/ 
 
 ---
 
