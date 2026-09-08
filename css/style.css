@@ -717,10 +717,12 @@ html { font-size: 100%; }
 /* --------------------------------------------------------------------------
    18. CONTACT
    -------------------------------------------------------------------------- */
-.contact__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+.contact__inner {
+  max-width: 56ch;
+}
+
+.contact__inner p {
+  color: var(--color-muted);
 }
 
 .contact-list {
@@ -748,42 +750,6 @@ html { font-size: 100%; }
 
 .contact-list a:hover { border-bottom-color: var(--color-accent); }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.contact-form__note {
-  font-size: var(--fs-300);
-  border: 1px dashed var(--color-border);
-  padding: 0.75rem 1rem;
-  border-radius: var(--border-radius);
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.form-field label {
-  font-size: var(--fs-300);
-  font-weight: 600;
-}
-
-.form-field input,
-.form-field textarea {
-  padding: 0.75rem 0.9rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  background-color: var(--color-surface-raised);
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-  border-color: var(--color-accent-dark);
-}
 
 /* --------------------------------------------------------------------------
    19. FOOTER
