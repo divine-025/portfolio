@@ -8,9 +8,9 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Color */
-  --color-bg: #F4F3EE;
-  --color-surface: #E8E6DE;
-  --color-surface-raised: #FBFAF7;
+  --color-bg: #f4f3ee76;
+  --color-surface: #26262980;
+  --color-surface-raised: #b2babafa;
   --color-text: #252824;
   --color-muted: #55584F;      /* slightly darkened from brief for AA contrast on bg */
   --color-accent: #71806A;
