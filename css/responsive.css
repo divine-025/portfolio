@@ -1,0 +1,159 @@
+/* ==========================================================================
+   responsive.css
+   Mobile-first breakpoint overrides. style.css defines mobile defaults;
+   this file progressively enhances the layout for larger viewports.
+   Breakpoints: 480 / 768 / 1024 / 1280 / 1600
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Small mobile refinements (≤ 480px) — tightened spacing already handled
+   in style.css via --container-padding override.
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  section { padding-block: clamp(2.75rem, 2.2rem + 2vw, 4rem); }
+}
+
+/* --------------------------------------------------------------------------
+   Tablet and up (≥ 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  :root { --container-padding: 2rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Small desktop / laptop (≥ 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  :root { --container-padding: 2.5rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Large desktop (≥ 1600px) — cap grid background so it doesn't look sparse
+   -------------------------------------------------------------------------- */
+@media (min-width: 1600px) {
+  body { background-size: 80px 80px; }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion is handled globally in style.css; component-level
+   responsive rules for nav / hero / projects / timelines are added in
+   their respective build phases below this line.
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   NAVIGATION — mobile menu vs. desktop inline nav
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .nav-toggle { display: flex; }
+
+  .primary-nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    top: 68px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.5rem var(--container-padding) 2rem;
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--duration-base) var(--ease-standard),
+                transform var(--duration-base) var(--ease-standard),
+                visibility var(--duration-base);
+  }
+
+  .primary-nav.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .primary-nav__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .primary-nav__list a {
+    display: block;
+    padding-block: 0.85rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .primary-nav__cv {
+    margin-top: 1.25rem;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .primary-nav {
+    position: static;
+    flex-direction: row;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   HERO — stack on mobile, side-by-side from tablet up
+   -------------------------------------------------------------------------- */
+@media (min-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+  .hero__photo-wrap { justify-self: end; }
+}
+
+/* --------------------------------------------------------------------------
+   SKILLS — multi-column from tablet up
+   -------------------------------------------------------------------------- */
+@media (min-width: 640px) {
+  .skills__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .skills__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   PROJECTS — grid columns scale up
+   -------------------------------------------------------------------------- */
+@media (min-width: 640px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .project-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   CERTIFICATIONS — two columns from tablet up
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .certifications__grid { grid-template-columns: 1.4fr 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT — two columns from tablet up
+   -------------------------------------------------------------------------- */
+@media (min-width: 800px) {
+  .contact__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER — row layout from tablet up
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .site-footer__inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
